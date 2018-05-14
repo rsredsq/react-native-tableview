@@ -183,6 +183,8 @@ interface ItemProps {
    */
   canEdit?: boolean
 
+  backgroundColor?: string
+
   /**
    * Callback fired on pressing an accessory
    */
