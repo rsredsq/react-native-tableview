@@ -340,15 +340,8 @@ RCT_NOT_IMPLEMENTED(-initWithCoder:(NSCoder *)aDecoder)
     
     if (self.selectedBackgroundColor && [item[@"selected"] intValue]) {
       [cell setBackgroundColor:self.selectedBackgroundColor];
-    } else {
-      if (item[@"transparent"]) {
-        [cell setBackgroundColor:[UIColor clearColor]];
-      } else if (item[@"backgroundColor"]){
-        UIColor* color = [self colorFromHexString:item[@"backgroundColor"]];
-        [cell setBackgroundColor:color];
-      } else {
-        [cell setBackgroundColor:[UIColor whiteColor]];
-      }
+    } else if (item[@"transparent"]) {
+      [cell setBackgroundColor:[UIColor clearColor]];
     }
     
     if (item[@"image"]) {
@@ -496,8 +489,12 @@ RCT_NOT_IMPLEMENTED(-initWithCoder:(NSCoder *)aDecoder)
     if (item[@"selectionStyle"]) {
         cell.selectionStyle = [item[@"selectionStyle"] intValue];
     }
+    if (self.cellBackgroundColor) {
+        cell.backgroundColor = self.cellBackgroundColor;
+    }
     if (item[@"backgroundColor"]) {
-        
+        UIColor* color = [self colorFromHexString:item[@"backgroundColor"]];
+        cell.backgroundColor = color;
     }
     return cell;
 }

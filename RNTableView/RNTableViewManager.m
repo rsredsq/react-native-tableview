@@ -63,6 +63,7 @@ RCT_EXPORT_VIEW_PROPERTY(moveWithinSectionOnly, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(allowsToggle, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(allowsMultipleSelection, BOOL)
 RCT_EXPORT_VIEW_PROPERTY(alwaysBounceVertical, BOOL)
+RCT_EXPORT_VIEW_PROPERTY(cellBackgroundColor, UIColor)
 
 RCT_EXPORT_VIEW_PROPERTY(onEndDisplayingCell, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onWillDisplayCell, RCTBubblingEventBlock)
