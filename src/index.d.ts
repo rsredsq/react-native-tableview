@@ -236,7 +236,8 @@ interface TableViewProps {
   headerTextColor?: string
   footerTextColor?: string
   separatorColor?: string
-  cellBackgroundColor?: string
+  cellsBackgroundColor?: string
+  cellsBorderColor?: string
   fontSize?: number
   fontWeight?: FontWeight
   fontStyle?: FontStyle

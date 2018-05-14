@@ -75,7 +75,8 @@
 @property(nonatomic, assign) BOOL scrollEnabled;
 @property(nonatomic, assign) BOOL sectionIndexTitlesEnabled;
 
-@property(nonatomic, strong) UIColor* cellBackgroundColor;
+@property(nonatomic, strong) UIColor* cellsBackgroundColor;
+@property(nonatomic, strong) UIColor* cellsBorderColor;
 
 @property(nonatomic, copy) RCTBubblingEventBlock onWillDisplayCell;
 @property(nonatomic, copy) RCTBubblingEventBlock onEndDisplayingCell;

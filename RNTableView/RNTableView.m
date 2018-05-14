@@ -489,12 +489,15 @@ RCT_NOT_IMPLEMENTED(-initWithCoder:(NSCoder *)aDecoder)
     if (item[@"selectionStyle"]) {
         cell.selectionStyle = [item[@"selectionStyle"] intValue];
     }
-    if (self.cellBackgroundColor) {
-        cell.backgroundColor = self.cellBackgroundColor;
+    if (self.cellsBackgroundColor) {
+        cell.backgroundColor = self.cellsBackgroundColor;
     }
     if (item[@"backgroundColor"]) {
         UIColor* color = [self colorFromHexString:item[@"backgroundColor"]];
         cell.backgroundColor = color;
+    }
+    if (self.cellsBorderColor) {
+        [cell.contentView.layer setBorderColor:self.cellsBorderColor.CGColor];
     }
     return cell;
 }
