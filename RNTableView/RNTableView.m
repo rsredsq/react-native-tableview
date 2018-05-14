@@ -338,16 +338,17 @@ RCT_NOT_IMPLEMENTED(-initWithCoder:(NSCoder *)aDecoder)
         
     }
     
-    if (self.selectedBackgroundColor && [item[@"selected"] intValue])
-    {
-        [cell setBackgroundColor:self.selectedBackgroundColor];
+    if (self.selectedBackgroundColor && [item[@"selected"] intValue]) {
+      [cell setBackgroundColor:self.selectedBackgroundColor];
     } else {
-        if (item[@"transparent"])
-        {
-            [cell setBackgroundColor:[UIColor clearColor]];
-        } else {
-            [cell setBackgroundColor:[UIColor whiteColor]];
-        }
+      if (item[@"transparent"]) {
+        [cell setBackgroundColor:[UIColor clearColor]];
+      } else if (item[@"backgroundColor"]){
+        UIColor* color = [self colorFromHexString:item[@"backgroundColor"]];
+        [cell setBackgroundColor:color];
+      } else {
+        [cell setBackgroundColor:[UIColor whiteColor]];
+      }
     }
     
     if (item[@"image"]) {
@@ -486,6 +487,9 @@ RCT_NOT_IMPLEMENTED(-initWithCoder:(NSCoder *)aDecoder)
     }
     if (item[@"selectionStyle"]) {
         cell.selectionStyle = [item[@"selectionStyle"] intValue];
+    }
+    if (item[@"backgroundColor"]) {
+        
     }
     return cell;
 }
