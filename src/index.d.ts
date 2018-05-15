@@ -42,7 +42,7 @@ export interface OnChangeCallback extends Callback {
   sourceSection: number
   destinationIndex?: number
   destinationSection?: number
-  mode: 'move' | 'delete'
+  mode: 'move' | 'delete' |'insert'
   canMove?: boolean
   canEdit?: boolean
   children?: string
