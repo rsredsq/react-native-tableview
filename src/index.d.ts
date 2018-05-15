@@ -10,12 +10,12 @@ type FontWeight = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 'bold' |
 
 type FontStyle = 'italic' | 'normal' | 'oblique'
 
-interface CallBack {
+export interface Callback {
   cancelBubble: boolean
   target: number
 }
 
-interface AccessoryCallBack extends CallBack {
+export interface AccessoryCallback extends Callback {
   accessoryIndex: number
   accessorySection: number
   accessoryType: number
@@ -24,12 +24,12 @@ interface AccessoryCallBack extends CallBack {
   label?: string
 }
 
-interface DisplayCallBack extends CallBack {
+export interface DisplayCallback extends Callback {
   row: number
   section: number
 }
 
-interface OnPressCallBack extends CallBack {
+export interface OnPressCallback extends Callback {
   children: string
   selectedIndex: number
   selectedSection: number
@@ -37,7 +37,7 @@ interface OnPressCallBack extends CallBack {
   label?: string
 }
 
-interface OnChangeCallBack extends CallBack {
+export interface OnChangeCallback extends Callback {
   sourceIndex: number
   sourceSection: number
   destinationIndex?: number
@@ -188,12 +188,12 @@ interface ItemProps {
   /**
    * Callback fired on pressing an accessory
    */
-  onAccessoryPress?(event: AccessoryCallBack): void
+  onAccessoryPress?(event: AccessoryCallback): void
 
   /**
    * Callback fired on pressing an item
    */
-  onPress?(event: OnPressCallBack): void
+  onPress?(event: OnPressCallback): void
 }
 
 interface TableViewProps {
@@ -255,15 +255,15 @@ interface TableViewProps {
   footerFontStyle?: FontStyle
   footerFontFamily?: string
   onScroll?(event: NativeSyntheticEvent<NativeScrollEvent>): void
-  onPress?(event: OnPressCallBack): void
-  onChange?(event: OnChangeCallBack): void
+  onPress?(event: OnPressCallback): void
+  onChange?(event: OnChangeCallback): void
   /**
    * Fired when pull to refresh is active
    */
   onRefresh?(): void
-  onAccessoryPress?(event: AccessoryCallBack): void
-  onWillDisplayCell?(event: DisplayCallBack): void
-  onEndDisplayingCell?(event: DisplayCallBack): void
+  onAccessoryPress?(event: AccessoryCallback): void
+  onWillDisplayCell?(event: DisplayCallback): void
+  onEndDisplayingCell?(event: DisplayCallback): void
 }
 
 declare class TableView extends React.Component<TableViewProps> {}
