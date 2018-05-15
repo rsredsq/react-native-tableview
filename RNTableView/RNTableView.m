@@ -616,6 +616,11 @@ RCT_NOT_IMPLEMENTED(-initWithCoder:(NSCoder *)aDecoder)
 
 -(UITableViewCellEditingStyle)tableView:(UITableView *)tableView
           editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSMutableDictionary *value = [self dataForRow:indexPath.item section:indexPath.section];
+    if ([value[@"cellEditingStyle"] integerValue]) {
+        NSInteger cellEditingStyle = [value[@"cellEditingStyle"] integerValue];
+        return cellEditingStyle;
+    }
     return self.tableViewCellEditingStyle;
 }
 

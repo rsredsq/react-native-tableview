@@ -150,6 +150,8 @@ interface SectionProps {
    * Height of footer
    */
   footerHeight?: number
+
+  cellEditingStyle?: CellEditingStyle
 }
 
 interface ItemProps {
